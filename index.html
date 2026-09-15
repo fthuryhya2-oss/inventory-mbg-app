@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>SPPG KOTA BAUBAU WOLIO BATARAGURU</title>
+
+  <!-- iOS: tampilan full-screen tanpa address bar saat "Add to Home Screen" -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Gudang MBG">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#0f172a">
+
   <style>
     html, body {
       margin: 0;
@@ -21,7 +29,10 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: #0f172a url('background.jpg') center center / cover no-repeat;
+      /* fallback gradient dipakai duluan; kalau background.jpg ada, tampil di atasnya */
+      background:
+        url('background.jpg') center center / cover no-repeat,
+        linear-gradient(135deg, #0f172a 0%, #14532d 100%);
       color: #ffffff;
       font-family: Arial, sans-serif;
       z-index: 2;
@@ -75,9 +86,7 @@
   </div>
 
   <!--
-    GANTI nilai src di bawah ini dengan URL /exec Web App Apps Script Anda.
-    Contoh:
-    src="https://script.google.com/macros/s/AKfycbyXXXXXXXXXXXXXXXXXXXXXX/exec"
+    GANTI src di bawah ini dengan URL /exec Web App Apps Script kamu kalau berubah.
   -->
   <iframe
     id="appFrame"
