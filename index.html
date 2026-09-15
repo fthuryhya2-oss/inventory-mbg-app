@@ -12,6 +12,11 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="theme-color" content="#0f172a">
 
+  <!-- PWA: dibutuhkan supaya PWABuilder bisa membungkus app ini jadi APK -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
   <style>
     html, body {
       margin: 0;
@@ -94,6 +99,12 @@
     allow="clipboard-write"
     onload="document.getElementById('loader').style.display='none';"
   ></iframe>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
 
 </body>
 </html>
